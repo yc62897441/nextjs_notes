@@ -8,13 +8,13 @@ function MyDocument() {
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-                <title>Next</title>
+                <title>Next.JS Notes</title>
 
                 <meta name="description" content="這是我的 Next.js 筆記" />
-                <meta name="keywords" content="筆記,教學" />
+                <meta name="keywords" content="Next.js, notes, 筆記" />
 
-                {/* <link rel="shortcut icon" href="/images/favicon.ico" />
-                <link rel="apple-touch-icon" href="/images/favicon.ico" /> */}
+                <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
+                <link rel="apple-touch-icon" href="/favicon.ico" />
 
                 {/* Google Fonts */}
                 <link
