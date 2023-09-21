@@ -345,6 +345,7 @@ const data = [
             { name: '在請求時拿取資料', url: '/requestTimeGetData' },
             { name: '動態路由', url: '/dynamicRoutes' },
             { name: 'API 路由', url: '/apiRoutes' },
+            { name: '部屬 Next.js', url: '/deployment' },
         ],
     },
     {
