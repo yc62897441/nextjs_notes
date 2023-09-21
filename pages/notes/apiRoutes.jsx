@@ -1,6 +1,29 @@
+import { useEffect } from 'react'
+import useSWR from 'swr'
+import axios from 'axios'
+
 import Layout from '../../components/Layout'
 
 function ApiRoutesComponent() {
+    // TODO: 不確定有沒有用 async/await，是否有差異。
+    const fetcher = (url) => axios.get(url)
+    // const fetcher = async (url) => await axios.get(url)
+
+    const { data, error } = useSWR('/api/hello', fetcher) // 一定要命名為 data 與 error，才能取得回傳的物件
+    // console.log('data', data) // data.data === { text: "Hello" }
+
+    useEffect(() => {
+        fetchData()
+        async function fetchData() {
+            try {
+                const result = await axios.get('http://localhost:3000/api/hello')
+                // console.log('result', result) // result.data === { text: "Hello" }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    }, [])
+
     return (
         <Layout>
             <h1>Notes API 路由</h1>
@@ -37,7 +60,7 @@ function ApiRoutesComponent() {
                     }}
                 >
                     <code
-                        class="language-html"
+                        className="language-html"
                         style={{
                             color: 'rgb(197, 200, 198)',
                             textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px',
@@ -77,6 +100,68 @@ function ApiRoutesComponent() {
                     </a>{' '}
                     的一個實例，並且有一些
                     <a href="https://nextjs.tw/docs/api-routes/response-helpers">輔助函式</a>。
+                </div>
+
+                <div>以下是從 API 路由 /pages/api/hello 取回資料的範例：</div>
+                <div
+                    style={{
+                        color: 'rgb(197, 200, 198)',
+                        textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px',
+                        fontFamily:
+                            'Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace',
+                        direction: 'ltr',
+                        textAlign: 'left',
+                        whiteSpace: 'pre',
+                        wordSpacing: 'normal',
+                        wordBreak: 'normal',
+                        lineHeight: '1.5',
+                        tabSize: '4',
+                        hyphens: 'none',
+                        padding: '1em',
+                        margin: '0.5em 0px',
+                        overflow: 'auto',
+                        borderRadius: '0.3em',
+                        background: 'rgb(29, 31, 33)',
+                    }}
+                >
+                    <code
+                        className="language-html"
+                        style={{
+                            color: 'rgb(197, 200, 198)',
+                            textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px',
+                            fontFamily:
+                                'Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace',
+                            direction: 'ltr',
+                            textAlign: 'left',
+                            whiteSpace: 'pre',
+                            wordSpacing: 'normal',
+                            wordBreak: 'normal',
+                            lineHeight: '1.5',
+                            tabSize: '4',
+                            hyphens: 'none',
+                        }}
+                    >
+                        // 方式一 const fetcher = (url) =&gt; axios.get(url) <br />
+                        const &#123; data, error &#125; = useSWR('/api/hello', fetcher) //
+                        一定要命名為 data 與 error，才能取得回傳的物件 <br />
+                        console.log('data', data) // data.data === &#123; text: "Hello" &#125;{' '}
+                        <br />
+                        <br />
+                        // 方式二 <br />
+                        useEffect(() =&gt; &#123; <br />
+                        &ensp; fetchData() <br />
+                        &ensp; async function fetchData() &#123; <br />
+                        &ensp; &ensp; try &#123; <br />
+                        &ensp; &ensp; &ensp; const result = await
+                        axios.get('http://localhost:3000/api/hello') <br />
+                        &ensp; &ensp; &ensp; console.log('result', result) // result.data === &#123;
+                        text: "Hello" &#125; <br />
+                        &ensp; &ensp; &#125; catch (error) &#123; <br />
+                        &ensp; &ensp; &ensp; console.log(error) <br />
+                        &ensp; &ensp; &#125; <br />
+                        &ensp; &#125; <br />
+                        &#125;, [])
+                    </code>
                 </div>
             </section>
 
@@ -126,7 +211,7 @@ function ApiRoutesComponent() {
                     }}
                 >
                     <code
-                        class="language-html"
+                        className="language-html"
                         style={{
                             color: 'rgb(197, 200, 198)',
                             textShadow: 'rgba(0, 0, 0, 0.3) 0px 1px',

@@ -12,7 +12,7 @@ const LayoutWrapper = styled.main`
     min-height: 100vh;
 `
 
-const MainWrapper = styled.section`
+const MainWrapper = styled.main`
     flex-grow: 1;
     margin-top: 56px;
 
@@ -23,6 +23,11 @@ const MainWrapper = styled.section`
     @media (min-width: 1600px) {
         margin-top: 110px;
     }
+`
+const MainContainer = styled.section`
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 `
 
 const BackToTopWrapper = styled.div`
@@ -50,7 +55,9 @@ export default function Layout({ children }) {
     return (
         <LayoutWrapper>
             <Header />
-            <MainWrapper>{children}</MainWrapper>
+            <MainWrapper>
+                <MainContainer>{children}</MainContainer>
+            </MainWrapper>
             <BackToTopWrapper onClick={scrollToTop}>
                 <Image
                     src="/images/arrow.png" // Route of the image file
