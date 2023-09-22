@@ -297,12 +297,13 @@ const LinksGroup = styled.div`
 
     @media (min-width: 768px) {
         position: absolute;
-        top: calc(24px + 19px);
-        width: 185px;
+        top: calc(24px + 20px);
+        width: auto;
+        min-width: 185px;
         box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
         a {
-            padding: 8px 0 8px 20px;
+            padding: 8px 20px;
             background-color: #ffffff;
 
             :hover {
@@ -336,10 +337,10 @@ const Mask = styled.div`
 
 const data = [
     {
-        name: '筆記',
+        name: '筆記-建立你的第一個應用程式',
         url: '/notes',
         subLinks: [
-            { name: 'Link', url: '/link' },
+            { name: 'Link 頁面之間的導航', url: '/link' },
             { name: 'Static 靜態資源', url: '/static' },
             { name: 'getStaticProps', url: '/getStaticProps' },
             { name: '在請求時拿取資料', url: '/requestTimeGetData' },
@@ -349,9 +350,35 @@ const data = [
         ],
     },
     {
-        name: 'Next.js 教學網',
-        url: 'https://nextjs.tw/learn/foundations/about-nextjs',
-        subLinks: [{ name: 'Next.js 教學網', url: '', target: '_blank' }],
+        name: '筆記-SEARCH ENGINE OPTIMIZATION',
+        url: '/notes2',
+        subLinks: [{ name: 'Link', url: '/link' }],
+    },
+    {
+        name: 'Next.js 官方網站',
+        url: '',
+        subLinks: [
+            {
+                name: 'Next.js 開始學習(繁中)',
+                url: 'https://nextjs.tw/learn/foundations/about-nextjs',
+                target: '_blank',
+            },
+            {
+                name: 'Next.js 官方文件(繁中)',
+                url: 'https://nextjs.tw/docs/getting-started',
+                target: '_blank',
+            },
+            {
+                name: 'Next.js 開始學習(En)',
+                url: 'https://nextjs.org/learn/foundations/about-nextjs?utm_source=next-site&utm_medium=homepage-cta&utm_campaign=home',
+                target: '_blank',
+            },
+            {
+                name: 'Next.js 官方文件(En)',
+                url: 'https://nextjs.org/docs',
+                target: '_blank',
+            },
+        ],
     },
 ]
 
